@@ -3,12 +3,18 @@ import { taxData } from "../utils/taxtable";
 import TopCss from "../styles/CustomNotification.module.css";
 
 const CustomNotification = () => {
-  console.log("taxData------", taxData);
-
   return (
-    <div>
+    <div
+      style={{
+        background: "#212121",
+        width: "71.3rem",
+      }}
+    >
       {taxData?.map((data, index) => (
         <>
+          {index !== 0 && data?.["S.No."] && (
+            <div className={TopCss.divider}></div>
+          )}
           <div
             key={index}
             style={{ marginTop: "3%", width: "71.3rem" }}
@@ -50,8 +56,6 @@ const CustomNotification = () => {
             {data?.["Condition No."]}
           </span> */}
           </div>
-
-          {data?.["S.No."] && <div className={TopCss.divider}></div>}
         </>
       ))}
     </div>
